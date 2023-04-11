@@ -1,0 +1,5 @@
+				The Python Tips
+
+len() --- to count the characters in a string
+
+
