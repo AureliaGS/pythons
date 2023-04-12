@@ -10,23 +10,36 @@
 # 35 to 40 = severely obese
 # >40 = very severely obese
 
-weight = int(input('How much do you weigh in kg?'))
-height = float(input('Enter your height in meters?'))
-BMI = round(weight/(height*height),2)
-print('Your BMI is ' + str(BMI))
-print('You are:')
-if BMI < 15:
-    print('very severely underweight')
-elif (BMI > 15) and (BMI < 16):
-    print('severely underweight')
-elif (BMI > 16) and (BMI < 18.5):
-    print('underweight')
-elif (BMI > 18.5) and (BMI < 25):
-    print('normal')
-elif (BMI > 25) and (BMI < 30):
-    print('moderately obese')
-elif (BMI > 30) and (BMI < 40):
-    print('severely obese')
-else:
-    print('very severely obese')
+def report(BMI):
+    if BMI < 15:
+        result='very severely underweight'
+    elif (BMI >= 15) and (BMI < 16):
+        result='severely underweight'
+    elif (BMI >= 16) and (BMI < 18.5):
+        result='underweight'
+    elif (BMI >= 18.5) and (BMI < 25):
+        result='normal'
+    elif (BMI >= 25) and (BMI < 30):
+        result='overweight'
+    elif (BMI >= 30) and (BMI < 35):
+        result='moderately obese'
+    elif (BMI >= 35) and (BMI < 40):
+        result='severely obese'
+    else:
+        result='very severely obese'
+    return result
+
+
+while True: 
+    weight = float(input('How much do you weigh in kg?'))
+    height = float(input('Enter your height in meters?'))
+    BMI = round(weight/(height*height),2)
+    print('Your BMI is ' + str(BMI))
+    print('You are:')
     
+    augusta = report(BMI)
+    print(augusta)
+
+    answer = input('More? (y/n) ')
+    if answer == "n":
+        break
